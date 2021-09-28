@@ -1,0 +1,32 @@
+.item {
+    display: block;
+    padding: 5px 10px 0px 3px;
+    transition: 0.3s;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 30px;
+    border: 0px black solid;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {}
+
+    .display_index {
+        display: flex;
+        justify-content: space-between;
+
+        .display_key {
+            margin-left: 5px;
+            width: 80%;
+            display: inline-block;
+            text-align: left;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .display_value {
+            float: right;
+        }
+
+    }
+}
