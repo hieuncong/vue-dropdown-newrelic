@@ -27,6 +27,7 @@ export default {
   methods: {
     doFunc() {
       console.log(this.item.name);
+      console.log(this.item.parent);
       this.closeDropdown();
     },
   },
