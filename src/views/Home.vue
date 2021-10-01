@@ -19,6 +19,7 @@
     <DropdownMenu
       :dropdownArray="dropdownArray"
       :totalRecords="totalRecords"
+      :btnLoadMore="btnLoadMore"
       @item-click="itemClick"
       @index-click="indexClick"
     />
@@ -118,6 +119,7 @@ export default {
         },
       ],
       totalRecords: 10,
+      btnLoadMore: "Load more",
     };
   },
   methods: {

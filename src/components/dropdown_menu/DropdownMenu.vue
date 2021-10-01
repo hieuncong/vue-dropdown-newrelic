@@ -11,22 +11,12 @@
       <template v-slot:key> {{ dropdown.name }} </template>
       <template v-slot:value>{{ dropdown.value }}</template>
     </Dropdown>
-    <div style="display: block">
-      <p
-        v-if="isActiveLoadMoreButton"
-        class="btnLoadMore"
-        @click="loadMoreWithSubarr"
-      >
-        Load more with subarr
-      </p>
-      <p style="display: inline-block">|</p>
-      <p
-        v-if="isActiveLoadMoreButton"
-        class="btnLoadMore"
-        @click="loadMoreWithoutSubarr"
-      >
-        Load more without subarr
-      </p>
+    <div
+      v-if="isActiveLoadMoreButton"
+      class="btnLoadMore"
+      @click="loadMoreWithSubarr"
+    >
+      {{ btnLoadMore }}
     </div>
   </div>
 </template>
@@ -51,6 +41,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    btnLoadMore: {
+      type: String,
+      default: () => "",
+    },
   },
   watch: {
     totalRecords: {
@@ -62,13 +56,13 @@ export default {
     itemPayload: {
       handler(newValue, oldValue) {
         this.$emit("itemClick", newValue);
-      }
+      },
     },
     indexPayload: {
       handler(newValue, oldValue) {
         this.$emit("indexClick", newValue);
-      }
-    }
+      },
+    },
   },
   data() {
     return {};
