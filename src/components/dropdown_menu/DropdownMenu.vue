@@ -43,7 +43,7 @@ export default {
     },
     btnLoadMore: {
       type: String,
-      default: () => "",
+      default: () => "Load more",
     },
   },
   watch: {
