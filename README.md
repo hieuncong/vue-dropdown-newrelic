@@ -100,9 +100,9 @@ export default {
 
 There are 2 types of dropdownArray prop you can use. One with subarr field and one without it.
 
-When dropdownArray prop has subarr field, it represents the dropdown menu when you click on one of the dropdown buttons.
+* When dropdownArray prop has subarr field, it represents the dropdown menu when you click on one of the dropdown buttons.
 
-When dropdownArray prop doesn't have subarr field, it simply just represents the array's value.
+* When dropdownArray prop doesn't have subarr field, it simply just represents the array's value.
 
 You should sort the percent field of the main array and also the sub array to achieve the desired results in demo.
 
