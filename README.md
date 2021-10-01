@@ -4,9 +4,9 @@ A Vue3 dropdown component that looks like New Relic HTTP Request statistics drop
 
 ## Demo
 
-<img src="https://github.com/hieuncong/vue-dropdown-newrelic/tree/master/src/assets/demo1.png" alt="demo1"/>
+![alt text](https://github.com/hieuncong/vue-dropdown-newrelic/tree/master/src/assets/demo1.png)
 
-<img src="https://github.com/hieuncong/vue-dropdown-newrelic/tree/master/src/assets/demo2.png" alt="demo2"/>
+![alt text](https://github.com/hieuncong/vue-dropdown-newrelic/tree/master/src/assets/demo2.png)
 
 
 ## Useage
@@ -24,7 +24,6 @@ A Vue3 dropdown component that looks like New Relic HTTP Request statistics drop
 </template>
 
 <script>
-// @ is an alias to /src
 import DropdownMenu from "@/components/dropdown_menu/DropdownMenu.vue";
 
 export default {
@@ -93,11 +92,6 @@ export default {
 ```
 
 ## Props
-<style>
-  table {
-    width: 100%;
-  }
-</style>
 
 |     Prop      	|                    Description                    	| Type   	| Default 	|
 |---------------	|---------------------------------------------------	|--------	|---------	|
