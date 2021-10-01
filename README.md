@@ -1,10 +1,38 @@
-# custom-dropdown
+# vue-dropdown-newrelic
 
 A Vue3 dropdown component that looks like New Relic HTTP Request statistics dropdown.
 
-Demo data:
-```
-data() {
+## Demo
+
+<img src="https://github.com/hieuncong/vue-dropdown-newrelic/tree/master/src/assets/demo1.png" alt="demo1"/>
+
+<img src="https://github.com/hieuncong/vue-dropdown-newrelic/tree/master/src/assets/demo2.png" alt="demo2"/>
+
+
+## Useage
+```javascript
+<template>
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <DropdownMenu
+      :dropdownArray="dropdownArray"
+      :totalRecords="totalRecords"
+      @item-click="itemClick"
+      @index-click="indexClick"
+    />
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+import DropdownMenu from "@/components/dropdown_menu/DropdownMenu.vue";
+
+export default {
+  name: "Home",
+  components: {
+    DropdownMenu,
+  },
+  data() {
     return {
       dropdownArray: [
         {
@@ -13,92 +41,85 @@ data() {
           percent: 100,
           subarr: [
             {
-              name: "domain1/path1/Loremipsumdolorsitamet,consecteturadipiscingelit.",
+              name: "path1/Loremipsumdolorsitamet,consecteturadipiscingelit.",
+              parent:
+                "www.domain1.Loremipsumdolorsitamet,consecteturadipiscingelit.",
               value: 12,
               percent: 100,
             },
             {
-              name: "domain1/path2",
+              name: "path2",
+              parent:
+                "www.domain1.Loremipsumdolorsitamet,consecteturadipiscingelit.",
               value: 4,
               percent: 33.33,
-            },
-            {
-              name: "domain1/path3",
-              value: 2,
-              percent: 16.67,
-            },
-            {
-              name: "domain1/path4",
-              value: 2,
-              percent: 16.67,
-            },
-            {
-              name: "domain1/path5",
-              value: 1,
-              percent: 8.33,
-            },
+            }
           ],
         },
         {
-          name: "www.domain2.com",
-          value: 17,
-          percent: 73.91,
+          name: "www.anotherdomain.com",
+          value: 23,
+          percent: 100,
           subarr: [
             {
-              name: "domain2/path1",
+              name: "path1/Loremipsumdolorsitamet,consecteturadipiscingelit.",
+              parent: "www.anotherdomain.com",
               value: 12,
               percent: 100,
             },
             {
-              name: "domain2/path2",
+              name: "path2",
+              parent: "www.anotherdomain.com",
               value: 4,
               percent: 33.33,
-            },
-            {
-              name: "domain2/path3",
-              value: 2,
-              percent: 16.67,
-            },
-            {
-              name: "domain2/path4",
-              value: 2,
-              percent: 16.67,
-            },
-            {
-              name: "domain2/path5",
-              value: 1,
-              percent: 8.33,
-            },
+            }
           ],
         },
-        {
-          name: "www.domain3.com",
-          value: 14,
-          percent: 60.86,
-          subarr: [],
-        },
-        {
-          name: "www.domain4.com",
-          value: 10,
-          percent: 43.47,
-          subarr: [],
-        },
-        {
-          name: "www.domain5.com",
-          value: 7,
-          percent: 30.43,
-          subarr: [],
-        },
-        {
-          name: "www.domain6.com",
-          value: 5,
-          percent: 21.73,
-          subarr: [],
-        },
       ],
+      totalRecords: 10,
     };
   },
+  methods: {
+    itemClick(itemPayload) {
+      console.log(itemPayload);
+    },
+
+    indexClick(indexPayload) {
+      console.log(indexPayload);
+    },
+  },
+};
+</script>
 ```
+
+## Props
+<style>
+  table {
+    width: 100%;
+  }
+</style>
+
+|     Prop      	|                    Description                    	| Type   	| Default 	|
+|---------------	|---------------------------------------------------	|--------	|---------	|
+| dropdownArray 	| Data array used to display dropdown               	| array  	| null    	|
+| totalRecords  	| The number of total records (used for pagination) 	| number 	| 10      	|
+
+### Notes
+
+There are 2 types of dropdownArray prop you can use. One with subarr field and one without it.
+
+When dropdownArray prop has subarr field, it represents the dropdown menu when you click on one of the dropdown buttons.
+
+When dropdownArray prop doesn't have subarr field, it simply just represents the array's value.
+
+You should sort the percent field of the main array and also the sub array to achieve the desired results in demo.
+
+## Events
+
+| Name        	|                    Description                  	| Attributes              	|
+|-------------	|-------------------------------------------------	|---------------------------------	|
+| index-click 	| Emit when user clicked dropdown button               	| indexPayload                 	|
+| item-click  	| Emit when user clicked one of the dropdown menu item 	| itemPayload 	|
 
 ## Project setup
 ```
