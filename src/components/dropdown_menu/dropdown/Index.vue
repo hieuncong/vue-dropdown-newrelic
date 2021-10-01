@@ -1,7 +1,7 @@
 <template>
   <div :id="id" class="dropdown">
     <button
-      @click="dropDownClick"
+      @click="indexClick"
       class="button_dropdown"
       :class="{ isActive: isOpen }"
       :style="{
@@ -13,7 +13,10 @@
       <div class="display_index">
         <div
           class="display_arrow"
-          :style="{ transform: computedArrowRotate }"
+          :style="{
+            transform: computedArrowRotate,
+            display: computedVisibleArrow,
+          }"
           ref="display_arrow"
         >
           &#9660;
@@ -29,6 +32,7 @@
     <div class="dropdown-list" v-if="isOpen">
       <Item
         v-for="(item, index) in arrays"
+        v-bind="$attrs"
         :key="index"
         :item="item"
         :style="{ background: calculateItemBackground(item.percent) }"
@@ -61,7 +65,7 @@ export default {
   props: {
     arrays: {
       type: Array,
-      default: () => [],
+      default: () => null,
     },
     percent: {
       type: Number,
@@ -96,6 +100,11 @@ export default {
 
     computedWebkitBoxShadow() {
       return this.webkitBoxShadow;
+    },
+
+    computedVisibleArrow() {
+      if (!this.arrays) return "none";
+      else return "inline-block";
     },
   },
   methods: {
@@ -159,10 +168,14 @@ export default {
       }
     },
 
-    dropDownClick() {
+    indexClick() {
       this.isOpen = !this.isOpen;
       this.calculateArrowRotate();
-      if (this.isOpen) console.log(this.id);
+      if (this.isOpen) {
+        this.$store.dispatch("doUpdateIndexPayload", {
+          indexName: this.id,
+        });
+      }
     },
   },
 };

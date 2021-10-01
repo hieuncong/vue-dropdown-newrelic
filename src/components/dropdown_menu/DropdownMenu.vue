@@ -11,20 +11,37 @@
       <template v-slot:key> {{ dropdown.name }} </template>
       <template v-slot:value>{{ dropdown.value }}</template>
     </Dropdown>
-    <p v-if="isActiveLoadMoreButton" class="btnLoadMore" @click="loadMore">
-      Load more
-    </p>
+    <div style="display: block">
+      <p
+        v-if="isActiveLoadMoreButton"
+        class="btnLoadMore"
+        @click="loadMoreWithSubarr"
+      >
+        Load more with subarr
+      </p>
+      <p style="display: inline-block">|</p>
+      <p
+        v-if="isActiveLoadMoreButton"
+        class="btnLoadMore"
+        @click="loadMoreWithoutSubarr"
+      >
+        Load more without subarr
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 import Dropdown from "./dropdown/Index.vue";
 
+import { mapState } from "vuex";
+
 export default {
   name: "DropdownMenu",
   components: {
     Dropdown,
   },
+  emits: ["indexClick", "itemClick"],
   props: {
     totalRecords: {
       type: Number,
@@ -42,6 +59,16 @@ export default {
     dropdownArray: {
       handler(newValue, oldValue) {},
     },
+    itemPayload: {
+      handler(newValue, oldValue) {
+        this.$emit("itemClick", newValue);
+      }
+    },
+    indexPayload: {
+      handler(newValue, oldValue) {
+        this.$emit("indexClick", newValue);
+      }
+    }
   },
   data() {
     return {};
@@ -50,86 +77,111 @@ export default {
     isActiveLoadMoreButton() {
       return this.dropdownArray.length < this.totalRecords;
     },
+
+    ...mapState({
+      itemPayload: "itemPayload",
+      indexPayload: "indexPayload",
+    }),
   },
   methods: {
-    loadMore() {
-      console.log("loadMore");
-      this.dropdownArray.push(...[
-        {
-          name: "www.domain2.com",
-          value: 17,
-          percent: 73.91,
-          subarr: [
-            {
-              name: "domain2/path1",
-              parent: "www.domain2.com",
-              value: 12,
-              percent: 100,
-            },
-            {
-              name: "domain2/path2",
-              parent: "www.domain2.com",
-              value: 4,
-              percent: 33.33,
-            },
-            {
-              name: "domain2/path3",
-              parent: "www.domain2.com",
-              value: 2,
-              percent: 16.67,
-            },
-            {
-              name: "domain2/path4",
-              parent: "www.domain2.com",
-              value: 2,
-              percent: 16.67,
-            },
-            {
-              name: "domain2/path5",
-              parent: "www.domain2.com",
-              value: 1,
-              percent: 8.33,
-            },
-          ],
-        },
-        {
-          name: "www.anotherdomain2.com",
-          value: 17,
-          percent: 73.91,
-          subarr: [
-            {
-              name: "anotherdomain2/path1",
-              parent: "www.anotherdomain2.com",
-              value: 12,
-              percent: 100,
-            },
-            {
-              name: "anotherdomain2/path2",
-              parent: "www.anotherdomain2.com",
-              value: 4,
-              percent: 33.33,
-            },
-            {
-              name: "anotherdomain2/path3",
-              parent: "www.anotherdomain2.com",
-              value: 2,
-              percent: 16.67,
-            },
-            {
-              name: "anotherdomain2/path4",
-              parent: "www.anotherdomain2.com",
-              value: 2,
-              percent: 16.67,
-            },
-            {
-              name: "anotherdomain2/path5",
-              parent: "www.anotherdomain2.com",
-              value: 1,
-              percent: 8.33,
-            },
-          ],
-        },
-      ]);
+    loadMoreWithSubarr() {
+      console.log("loadMoreWithSubarr");
+      this.dropdownArray.push(
+        ...[
+          {
+            name: "www.domain2.com",
+            value: 17,
+            percent: 73.91,
+            subarr: [
+              {
+                name: "domain2/path1",
+                parent: "www.domain2.com",
+                value: 12,
+                percent: 100,
+              },
+              {
+                name: "domain2/path2",
+                parent: "www.domain2.com",
+                value: 4,
+                percent: 33.33,
+              },
+              {
+                name: "domain2/path3",
+                parent: "www.domain2.com",
+                value: 2,
+                percent: 16.67,
+              },
+              {
+                name: "domain2/path4",
+                parent: "www.domain2.com",
+                value: 2,
+                percent: 16.67,
+              },
+              {
+                name: "domain2/path5",
+                parent: "www.domain2.com",
+                value: 1,
+                percent: 8.33,
+              },
+            ],
+          },
+          {
+            name: "www.anotherdomain2.com",
+            value: 17,
+            percent: 73.91,
+            subarr: [
+              {
+                name: "anotherdomain2/path1",
+                parent: "www.anotherdomain2.com",
+                value: 12,
+                percent: 100,
+              },
+              {
+                name: "anotherdomain2/path2",
+                parent: "www.anotherdomain2.com",
+                value: 4,
+                percent: 33.33,
+              },
+              {
+                name: "anotherdomain2/path3",
+                parent: "www.anotherdomain2.com",
+                value: 2,
+                percent: 16.67,
+              },
+              {
+                name: "anotherdomain2/path4",
+                parent: "www.anotherdomain2.com",
+                value: 2,
+                percent: 16.67,
+              },
+              {
+                name: "anotherdomain2/path5",
+                parent: "www.anotherdomain2.com",
+                value: 1,
+                percent: 8.33,
+              },
+            ],
+          },
+        ]
+      );
+    },
+
+    loadMoreWithoutSubarr() {
+      console.log("loadMoreWithoutSubarr");
+      this.dropdownArray.push(
+        ...[
+          {
+            name: "www.anotherdomain2.com/path2",
+            value: 17,
+            percent: 73.91,
+          },
+          {
+            name: "www.justanotherdomain.com/withnosubarr",
+            value: 17,
+            percent: 73.91,
+          },
+        ]
+      );
     },
   },
 };

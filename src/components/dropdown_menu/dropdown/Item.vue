@@ -1,5 +1,5 @@
 <template>
-  <div class="item" @click="doFunc">
+  <div class="item" @click="itemClick">
     <div class="display_index">
       <div class="display_key">
         <slot name="key" />
@@ -25,9 +25,11 @@ export default {
     },
   },
   methods: {
-    doFunc() {
-      console.log(this.item.name);
-      console.log(this.item.parent);
+    itemClick() {
+      this.$store.dispatch("doUpdateItemPayload", {
+        parentName: this.item.parent,
+        itemName: this.item.name,
+      });
       this.closeDropdown();
     },
   },

@@ -1,8 +1,27 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <p style="cursor: pointer" @click="genData">New data</p>
-    <DropdownMenu :dropdownArray="dropdownArray" :totalRecords="totalRecords" />
+    <div style="display: block">
+      <p
+        style="cursor: pointer; display: inline-block"
+        @click="genDataWithSubarr"
+      >
+        Data with subarr
+      </p>
+      <p style="display: inline-block">|</p>
+      <p
+        style="cursor: pointer; display: inline-block"
+        @click="genDataWithoutSubarr"
+      >
+        Data without subarr
+      </p>
+    </div>
+    <DropdownMenu
+      :dropdownArray="dropdownArray"
+      :totalRecords="totalRecords"
+      @item-click="itemClick"
+      @index-click="indexClick"
+    />
   </div>
 </template>
 
@@ -98,81 +117,86 @@ export default {
           ],
         },
       ],
-      totalRecords: 6,
+      totalRecords: 10,
     };
   },
   methods: {
-    genData() {
+    genDataWithSubarr() {
       this.dropdownArray = [
         {
-          name: "www.mydomain.com",
+          name: "www.domain1.Loremipsumdolorsitamet,consecteturadipiscingelit.",
           value: 23,
           percent: 100,
           subarr: [
             {
-              name: "domain1/path1/Loremipsumdolorsitamet,consecteturadipiscingelit.",
-              parent: "www.mydomain.com",
+              name: "path1/Loremipsumdolorsitamet,consecteturadipiscingelit.",
+              parent:
+                "www.domain1.Loremipsumdolorsitamet,consecteturadipiscingelit.",
               value: 12,
               percent: 100,
             },
             {
-              name: "domain1/path2",
-              parent: "www.mydomain.com",
+              name: "path2",
+              parent:
+                "www.domain1.Loremipsumdolorsitamet,consecteturadipiscingelit.",
               value: 4,
               percent: 33.33,
             },
             {
-              name: "domain1/path3",
-              parent: "www.mydomain.com",
+              name: "path3",
+              parent:
+                "www.domain1.Loremipsumdolorsitamet,consecteturadipiscingelit.",
               value: 2,
               percent: 16.67,
             },
             {
-              name: "domain1/path4",
-              parent: "www.mydomain.com",
+              name: "path4",
+              parent:
+                "www.domain1.Loremipsumdolorsitamet,consecteturadipiscingelit.",
               value: 2,
               percent: 16.67,
             },
             {
-              name: "domain1/path5",
-              parent: "www.mydomain.com",
+              name: "path5",
+              parent:
+                "www.domain1.Loremipsumdolorsitamet,consecteturadipiscingelit.",
               value: 1,
               percent: 8.33,
             },
           ],
         },
         {
-          name: "www.mydomain2.com",
+          name: "www.anotherdomain.com",
           value: 23,
           percent: 100,
           subarr: [
             {
-              name: "domain1/path1/Loremipsumdolorsitamet,consecteturadipiscingelit.",
-              parent: "www.mydomain.com",
+              name: "path1/Loremipsumdolorsitamet,consecteturadipiscingelit.",
+              parent: "www.anotherdomain.com",
               value: 12,
               percent: 100,
             },
             {
-              name: "domain1/path2",
-              parent: "www.mydomain.com",
+              name: "path2",
+              parent: "www.anotherdomain.com",
               value: 4,
               percent: 33.33,
             },
             {
-              name: "domain1/path3",
-              parent: "www.mydomain.com",
+              name: "path3",
+              parent: "www.anotherdomain.com",
               value: 2,
               percent: 16.67,
             },
             {
-              name: "domain1/path4",
-              parent: "www.mydomain.com",
+              name: "path4",
+              parent: "www.anotherdomain.com",
               value: 2,
               percent: 16.67,
             },
             {
-              name: "domain1/path5",
-              parent: "www.mydomain.com",
+              name: "path5",
+              parent: "www.anotherdomain.com",
               value: 1,
               percent: 8.33,
             },
@@ -180,6 +204,30 @@ export default {
         },
       ];
       this.totalRecords = 10;
+    },
+
+    genDataWithoutSubarr() {
+      this.dropdownArray = [
+        {
+          name: "www.domain1.Loremipsumdolorsitamet,consecteturadipiscingelit.",
+          value: 23,
+          percent: 100,
+        },
+        {
+          name: "www.anotherdomain.com/path1",
+          value: 23,
+          percent: 100,
+        },
+      ];
+      this.totalRecords = 10;
+    },
+
+    itemClick(itemPayload) {
+      console.log(itemPayload);
+    },
+
+    indexClick(indexPayload) {
+      console.log(indexPayload);
     },
   },
 };
