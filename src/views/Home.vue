@@ -215,8 +215,28 @@ export default {
         },
         {
           name: "www.anotherdomain.com/path1",
-          value: 23,
-          percent: 100,
+          value: 20,
+          percent: 86.95,
+        },
+        {
+          name: "www.anotherdomain.com/path2",
+          value: 17,
+          percent: 73.91,
+        },
+        {
+          name: "www.domain1.Loremipsumdolorsitamet/path2",
+          value: 14,
+          percent: 60.86,
+        },
+        {
+          name: "www.anotherdomain.com/path3",
+          value: 10,
+          percent: 43.47,
+        },
+        {
+          name: "www.anotherdomain.com/path5",
+          value: 8,
+          percent: 34.78,
         },
       ];
       this.totalRecords = 10;
