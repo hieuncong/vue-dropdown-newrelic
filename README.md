@@ -15,6 +15,7 @@ A Vue3 dropdown component that looks like New Relic HTTP Request statistics drop
     <DropdownMenu
       :dropdownArray="dropdownArray"
       :totalRecords="totalRecords"
+      :btnLoadMore="btnLoadMore"
       @item-click="itemClick"
       @index-click="indexClick"
     />
@@ -74,6 +75,7 @@ export default {
         },
       ],
       totalRecords: 10,
+      btnLoadMore: "Load more",
     };
   },
   methods: {
@@ -95,6 +97,7 @@ export default {
 |---------------	|---------------------------------------------------	|--------	|---------	|
 | dropdownArray 	| Data array used to display dropdown               	| array  	| null    	|
 | totalRecords  	| The number of total records (used for pagination) 	| number 	| 0      	|
+| btnLoadMore   	| Text of load more button                          	| string 	| "Load more" 	|
 
 ### Notes
 
