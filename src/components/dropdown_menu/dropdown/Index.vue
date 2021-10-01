@@ -21,11 +21,13 @@
         >
           &#9660;
         </div>
-        <div class="display_key">
-          <slot name="key" />
-        </div>
-        <div class="display_value">
-          <slot name="value" />
+        <div class="display_index_main">
+          <div class="display_key">
+            <slot name="key" />
+          </div>
+          <div class="display_value">
+            <slot name="value" />
+          </div>
         </div>
       </div>
     </button>

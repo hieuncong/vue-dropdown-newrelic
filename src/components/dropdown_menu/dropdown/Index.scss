@@ -26,26 +26,29 @@
 
     .display_index {
         display: flex;
-        justify-content: space-between;
 
         .display_arrow {
-            // display: inline-block;
             text-align: left;
             transition: 0.3s;
-            margin-right: -12%;
+            margin-right: 5px;
         }
 
-        .display_key {
-            margin-left: 5px;
-            width: 80%;
-            display: inline-block;
-            text-align: left;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
+        .display_index_main {
+            display: flex;
+            justify-content: space-between;
+            width: 95%;
+            
 
-        .display_value {
-            float: right;
+            .display_key {
+                width: 80%;
+                text-align: left;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            .display_value {
+                float: right;
+            }
         }
 
     }
