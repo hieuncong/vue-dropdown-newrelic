@@ -45,7 +45,7 @@ export default {
   props: {
     totalRecords: {
       type: Number,
-      default: () => 10,
+      default: () => 0,
     },
     dropdownArray: {
       type: Array,
