@@ -94,7 +94,7 @@ export default {
 |     Prop      	|                    Description                    	| Type   	| Default 	|
 |---------------	|---------------------------------------------------	|--------	|---------	|
 | dropdownArray 	| Data array used to display dropdown               	| array  	| null    	|
-| totalRecords  	| The number of total records (used for pagination) 	| number 	| 10      	|
+| totalRecords  	| The number of total records (used for pagination) 	| number 	| 0      	|
 
 ### Notes
 
