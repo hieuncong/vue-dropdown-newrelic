@@ -21,7 +21,12 @@
         >
           &#9660;
         </div>
-        <div class="display_index_main">
+        <div
+          class="display_index_main"
+          :style="{
+            width: computedDisplay,
+          }"
+        >
           <div class="display_key">
             <slot name="key" />
           </div>
@@ -107,6 +112,11 @@ export default {
     computedVisibleArrow() {
       if (!this.arrays) return "none";
       else return "inline-block";
+    },
+
+    computedDisplay() {
+      if (!this.arrays) return "98%";
+      else return "95%";
     },
   },
   methods: {

@@ -30,14 +30,12 @@
         .display_arrow {
             text-align: left;
             transition: 0.3s;
-            margin-right: 5px;
         }
 
         .display_index_main {
             display: flex;
             justify-content: space-between;
-            width: 95%;
-            
+            margin-left: 5px;
 
             .display_key {
                 width: 80%;
