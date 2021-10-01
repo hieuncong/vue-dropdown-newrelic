@@ -4,10 +4,8 @@ A Vue3 dropdown component that looks like New Relic HTTP Request statistics drop
 
 ## Demo
 
-![alt text](https://github.com/hieuncong/vue-dropdown-newrelic/tree/master/src/assets/demo1.png)
-
-![alt text](https://github.com/hieuncong/vue-dropdown-newrelic/tree/master/src/assets/demo2.png)
-
+![demo1](src/assets/demo1.png)
+![demo2](src/assets/demo2.png)
 
 ## Useage
 ```javascript
