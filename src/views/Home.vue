@@ -16,13 +16,15 @@
         Data without subarr
       </p>
     </div>
-    <DropdownMenu
-      :dropdownArray="dropdownArray"
-      :totalRecords="totalRecords"
-      :btnLoadMore="btnLoadMore"
-      @item-click="itemClick"
-      @index-click="indexClick"
-    />
+    <div class="dropDownDiv">
+      <DropdownMenu
+        :dropdownArray="dropdownArray"
+        :totalRecords="totalRecords"
+        :btnLoadMore="btnLoadMore"
+        @item-click="itemClick"
+        @index-click="indexClick"
+      />
+    </div>
   </div>
 </template>
 
@@ -254,3 +256,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.dropDownDiv {
+  width: 500px;
+  height: 300px;
+  margin: auto;
+}
+</style>

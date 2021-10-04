@@ -181,6 +181,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "./DropdownMenu.scss";
 </style>
