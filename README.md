@@ -87,6 +87,10 @@ export default {
     indexClick(indexPayload) {
       console.log(indexPayload);
     },
+
+    loadMoreClick(){
+      console.log("loadMoreClick");
+    },
   },
 };
 </script>
