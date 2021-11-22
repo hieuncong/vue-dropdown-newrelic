@@ -118,7 +118,7 @@ You can control the number of items per page as much as you want, this component
 |-------------	|-------------------------------------------------	|---------------------------------	|
 | index-click 	| Emit when user clicked dropdown button               	| indexPayload                 	|
 | item-click  	| Emit when user clicked one of the dropdown menu item 	| itemPayload 	|
-| item-click  	| Emit when user clicked load more button 	|  	|
+| load-more-click  	| Emit when user clicked load more button 	|  	|
 
 ## Project setup
 ```
