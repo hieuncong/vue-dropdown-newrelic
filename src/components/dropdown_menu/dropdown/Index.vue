@@ -183,7 +183,7 @@ export default {
     indexClick() {
       this.isOpen = !this.isOpen;
       this.calculateArrowRotate();
-      if (this.isOpen) {
+      if (!this.arrays) {
         this.$store.dispatch("doUpdateIndexPayload", {
           indexName: this.id,
         });

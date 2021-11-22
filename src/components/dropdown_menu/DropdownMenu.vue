@@ -14,7 +14,7 @@
     <div
       v-if="isActiveLoadMoreButton"
       class="btnLoadMore"
-      @click="loadMoreWithSubarr"
+      @click="loadMore"
     >
       {{ btnLoadMore }}
     </div>
@@ -31,7 +31,7 @@ export default {
   components: {
     Dropdown,
   },
-  emits: ["indexClick", "itemClick"],
+  emits: ["indexClick", "itemClick", "loadMoreClick"],
   props: {
     totalRecords: {
       type: Number,
@@ -78,104 +78,8 @@ export default {
     }),
   },
   methods: {
-    loadMoreWithSubarr() {
-      console.log("loadMoreWithSubarr");
-      this.dropdownArray.push(
-        ...[
-          {
-            name: "www.domain2.com",
-            value: 17,
-            percent: 73.91,
-            subarr: [
-              {
-                name: "domain2/path1",
-                parent: "www.domain2.com",
-                value: 12,
-                percent: 100,
-              },
-              {
-                name: "domain2/path2",
-                parent: "www.domain2.com",
-                value: 4,
-                percent: 33.33,
-              },
-              {
-                name: "domain2/path3",
-                parent: "www.domain2.com",
-                value: 2,
-                percent: 16.67,
-              },
-              {
-                name: "domain2/path4",
-                parent: "www.domain2.com",
-                value: 2,
-                percent: 16.67,
-              },
-              {
-                name: "domain2/path5",
-                parent: "www.domain2.com",
-                value: 1,
-                percent: 8.33,
-              },
-            ],
-          },
-          {
-            name: "www.anotherdomain2.com",
-            value: 17,
-            percent: 73.91,
-            subarr: [
-              {
-                name: "anotherdomain2/path1",
-                parent: "www.anotherdomain2.com",
-                value: 12,
-                percent: 100,
-              },
-              {
-                name: "anotherdomain2/path2",
-                parent: "www.anotherdomain2.com",
-                value: 4,
-                percent: 33.33,
-              },
-              {
-                name: "anotherdomain2/path3",
-                parent: "www.anotherdomain2.com",
-                value: 2,
-                percent: 16.67,
-              },
-              {
-                name: "anotherdomain2/path4",
-                parent: "www.anotherdomain2.com",
-                value: 2,
-                percent: 16.67,
-              },
-              {
-                name: "anotherdomain2/path5",
-                parent: "www.anotherdomain2.com",
-                value: 1,
-                percent: 8.33,
-              },
-            ],
-          },
-        ]
-      );
-    },
-
-    loadMoreWithoutSubarr() {
-      console.log("loadMoreWithoutSubarr");
-      this.dropdownArray.push(
-        ...[
-          {
-            name: "www.anotherdomain2.com/path2",
-            value: 17,
-            percent: 73.91,
-          },
-          {
-            name: "www.justanotherdomain.com/withnosubarr",
-            value: 17,
-            percent: 73.91,
-          },
-        ]
-      );
+    loadMore() {
+      this.$emit("loadMoreClick");
     },
   },
 };
