@@ -18,6 +18,7 @@ A Vue3 dropdown component that looks like New Relic HTTP Request statistics drop
       :btnLoadMore="btnLoadMore"
       @item-click="itemClick"
       @index-click="indexClick"
+      @load-more-click="loadMoreClick"
     />
   </div>
 </template>
@@ -107,7 +108,9 @@ There are 2 types of dropdownArray prop you can use. One with subarr field and o
 
 * When dropdownArray prop doesn't have subarr field, it simply just represents the array's value.
 
-You should sort the percent field of the main array and also the sub array to achieve the desired results in demo.
+You should sort the percent field of the main array and also the sub array to achieve the desire results in demo (Basically it depends on sorting power from the server).
+
+You can control the number of items per page as much as you want, this component does not provide default number of items per page.
 
 ## Events
 
@@ -115,6 +118,7 @@ You should sort the percent field of the main array and also the sub array to ac
 |-------------	|-------------------------------------------------	|---------------------------------	|
 | index-click 	| Emit when user clicked dropdown button               	| indexPayload                 	|
 | item-click  	| Emit when user clicked one of the dropdown menu item 	| itemPayload 	|
+| item-click  	| Emit when user clicked load more button 	|  	|
 
 ## Project setup
 ```
