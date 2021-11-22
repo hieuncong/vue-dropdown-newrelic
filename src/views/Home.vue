@@ -28,7 +28,6 @@
     </div>
   </div>
 </template>
-
 <script>
 // @ is an alias to /src
 import DropdownMenu from "@/components/dropdown_menu/DropdownMenu.vue";
