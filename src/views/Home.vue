@@ -23,6 +23,7 @@
         :btnLoadMore="btnLoadMore"
         @item-click="itemClick"
         @index-click="indexClick"
+        @load-more-click="loadMoreClick"
       />
     </div>
   </div>
@@ -252,6 +253,10 @@ export default {
 
     indexClick(indexPayload) {
       console.log(indexPayload);
+    },
+
+    loadMoreClick(){
+      console.log("loadMoreClick");
     },
   },
 };
