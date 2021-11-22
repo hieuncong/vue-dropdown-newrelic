@@ -17,7 +17,7 @@
 
         .display_key {
             margin-left: 5px;
-            width: 80%;
+            width: 100%;
             display: inline-block;
             text-align: left;
             text-overflow: ellipsis;
@@ -26,7 +26,8 @@
         }
 
         .display_value {
-            float: right;
+            width: 100%;
+            text-align: right;
         }
 
     }
